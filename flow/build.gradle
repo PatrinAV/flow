@@ -1,21 +1,21 @@
 apply plugin: 'com.android.library'
 
 android {
-  namespace 'flow.basic'
-  compileSdkVersion versions.compileSdk
-  buildToolsVersion versions.buildTools
+	namespace 'flow.basic'
+	compileSdkVersion versions.compileSdk
+	buildToolsVersion versions.buildTools
 
-  defaultConfig {
-    minSdkVersion versions.minSdk
-	  versionName VERSION_NAME
-  }
+	defaultConfig {
+		minSdkVersion versions.minSdk
+		versionName VERSION_NAME
+	}
 }
 
 dependencies {
-  implementation deps.support.annotations
-  testImplementation deps.junit
-  testImplementation deps.assertj
-  testImplementation deps.mockito
-  testImplementation deps.robolectric
-  testImplementation deps.antTasks
+	implementation deps.support.annotations
+	testImplementation deps.junit
+	testImplementation deps.assertj
+	testImplementation deps.mockito
+	testImplementation deps.robolectric
+	testImplementation deps.antTasks
 }

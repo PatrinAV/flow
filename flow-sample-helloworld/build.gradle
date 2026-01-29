@@ -1,33 +1,33 @@
 apply plugin: 'com.android.application'
 
 android {
-  namespace 'flow.sample.helloworld'
-  compileSdkVersion versions.compileSdk
-  buildToolsVersion versions.buildTools
+	namespace 'flow.sample.helloworld'
+	compileSdkVersion versions.compileSdk
+	buildToolsVersion versions.buildTools
 
-  defaultConfig {
-    applicationId "flow.sample.helloworld"
+	defaultConfig {
+		applicationId "flow.sample.helloworld"
 
-    minSdkVersion versions.minSdk
-    versionName VERSION_NAME
-    testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-  }
+		minSdkVersion versions.minSdk
+		versionName VERSION_NAME
+		testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+	}
 
-  buildTypes {
-    release {
-      minifyEnabled false
-    }
-  }
+	buildTypes {
+		release {
+			minifyEnabled false
+		}
+	}
 
-  packagingOptions {
-    exclude 'LICENSE.txt'
-  }
+	packagingOptions {
+		exclude 'LICENSE.txt'
+	}
 }
 
 dependencies {
-  implementation project(':flow')
-  implementation deps.support.appcompat
-  androidTestImplementation deps.support.test.runner
-  androidTestImplementation deps.support.test.rules
-  androidTestImplementation deps.support.test.espresso
+	implementation project(':flow')
+	implementation deps.support.appcompat
+	androidTestImplementation deps.support.test.runner
+	androidTestImplementation deps.support.test.rules
+	androidTestImplementation deps.support.test.espresso
 }
