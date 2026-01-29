@@ -19,9 +19,9 @@ package flow;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.support.annotation.CheckResult;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.CheckResult;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import android.view.View;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -284,7 +284,8 @@ public final class Flow {
    *
    * @return false if going back is not possible.
    */
-  @CheckResult public boolean goBack() {
+  @CheckResult
+  public boolean goBack() {
     boolean canGoBack = history.size() > 1 || (pendingTraversal != null
         && pendingTraversal.state != TraversalState.FINISHED);
     if (!canGoBack) return false;

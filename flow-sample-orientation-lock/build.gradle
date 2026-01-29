@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 
 android {
+	namespace 'flow.sample.orientation'
   compileSdkVersion versions.compileSdk
   buildToolsVersion versions.buildTools
 
@@ -9,7 +10,7 @@ android {
 
     minSdkVersion versions.minSdk
     versionName VERSION_NAME
-    testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+	  testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
   }
 
   buildTypes {

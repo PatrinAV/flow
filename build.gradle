@@ -1,36 +1,37 @@
 buildscript {
   ext.versions = [
       'minSdk': 14,
-      'compileSdk': 26,
-      'buildTools': '26.0.2',
-      'supportLibrary': '26.0.2'
+      'compileSdk': 33,
+      'buildTools': '33.0.0',
+      'supportLibrary': '1.6.1'
   ]
 
   ext.deps = [
     'support': [
-      'annotations': "com.android.support:support-annotations:${versions.supportLibrary}",
-      'appcompat': "com.android.support:appcompat-v7:${versions.supportLibrary}",
-      'design': "com.android.support:design:${versions.supportLibrary}",
+      'annotations': "androidx.annotation:annotation:1.6.0",
+      'appcompat': "androidx.appcompat:appcompat:1.6.1",
+      'design': "com.google.android.material:material:1.8.0",
       'test': [
-          'espresso': 'com.android.support.test.espresso:espresso-core:3.0.1',
-          'runner': 'com.android.support.test:runner:1.0.1',
-          'rules': 'com.android.support.test:rules:1.0.1',
+          'espresso': 'androidx.test.espresso:espresso-core:3.5.1',
+          'runner': 'androidx.test:runner:1.5.2',
+          'rules': 'androidx.test:rules:1.5.0',
       ]
     ],
-    'junit': 'junit:junit:4.12',
-    'assertj': 'org.assertj:assertj-core:3.8.0',
-    'mockito': 'org.mockito:mockito-core:2.10.0',
-    'robolectric': 'org.robolectric:robolectric:3.4.2',
+    'junit': 'junit:junit:4.13.2',
+    'assertj': 'org.assertj:assertj-core:3.24.2',
+    'mockito': 'org.mockito:mockito-core:5.3.1',
+    'robolectric': 'org.robolectric:robolectric:4.10.3',
     'antTasks': 'org.apache.maven:maven-ant-tasks:2.1.3',
   ]
 
   dependencies {
-    classpath 'com.android.tools.build:gradle:3.0.0-rc1'
-    classpath 'com.github.ben-manes:gradle-versions-plugin:0.15.0'
+    classpath 'com.android.tools.build:gradle:8.0.0'
+    classpath 'com.github.ben-manes:gradle-versions-plugin:0.46.0'
   }
 
   repositories {
-    jcenter()
+    gradlePluginPortal()
+    mavenCentral()
     google()
   }
 }
@@ -39,16 +40,18 @@ apply plugin: 'com.github.ben-manes.versions'
 
 subprojects {
   repositories {
-    jcenter()
+    mavenCentral()
     google()
   }
 
   afterEvaluate { project ->
-    android {
-      lintOptions {
-        quiet false
-        textReport true
-        textOutput 'stdout'
+    if (project.plugins.hasPlugin('android') || project.plugins.hasPlugin('com.android.library')) {
+      android {
+        lintOptions {
+          quiet false
+          textReport true
+          textOutput 'stdout'
+        }
       }
     }
   }

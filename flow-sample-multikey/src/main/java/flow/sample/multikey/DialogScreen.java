@@ -1,6 +1,6 @@
 package flow.sample.multikey;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import flow.MultiKey;
 import java.util.Collections;
 import java.util.List;

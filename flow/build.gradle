@@ -1,12 +1,13 @@
 apply plugin: 'com.android.library'
 
 android {
+  namespace 'flow.basic'
   compileSdkVersion versions.compileSdk
   buildToolsVersion versions.buildTools
 
   defaultConfig {
     minSdkVersion versions.minSdk
-    versionName VERSION_NAME
+	  versionName VERSION_NAME
   }
 }
 
@@ -18,5 +19,3 @@ dependencies {
   testImplementation deps.robolectric
   testImplementation deps.antTasks
 }
-
-apply from: rootProject.file('gradle/gradle-mvn-push.gradle')

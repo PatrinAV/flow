@@ -160,15 +160,15 @@ public class HistoryTest {
 
   @Test public void historyIndexAccess() {
     History history = History.emptyBuilder().pushAll(asList(ABLE, BAKER, CHARLIE)).build();
-    assertThat(history.peek(0)).isEqualTo(CHARLIE);
-    assertThat(history.peek(1)).isEqualTo(BAKER);
-    assertThat(history.peek(2)).isEqualTo(ABLE);
+    assertThat((Object) history.peek(0)).isEqualTo(CHARLIE);
+    assertThat((Object) history.peek(1)).isEqualTo(BAKER);
+    assertThat((Object) history.peek(2)).isEqualTo(ABLE);
   }
 
   @Test public void historyIsIsolatedFromItsBuilder() {
     History.Builder builder = History.emptyBuilder().pushAll(asList(ABLE, BAKER, CHARLIE));
     History history = builder.build();
     builder.pop();
-    assertThat(history.peek(0)).isEqualTo(CHARLIE);
+    assertThat((Object) history.peek(0)).isEqualTo(CHARLIE);
   }
 }

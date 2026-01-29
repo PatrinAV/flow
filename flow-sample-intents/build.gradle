@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 
 android {
+  namespace 'flow.sample.intents'
   compileSdkVersion versions.compileSdk
   buildToolsVersion versions.buildTools
 
@@ -8,8 +9,8 @@ android {
     applicationId "flow.sample.intents"
 
     minSdkVersion versions.minSdk
-    versionName VERSION_NAME
-    testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+	  versionName VERSION_NAME
+    testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
   }
 
   buildTypes {
