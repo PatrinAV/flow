@@ -1,7 +1,9 @@
 include ':flow'
+/*
 include ':flow-sample-helloworld'
 include ':flow-sample-intents'
 include ':flow-sample-basic'
 include ':flow-sample-multikey'
 include ':flow-sample-orientation-lock'
 include ':flow-sample-tree'
+*/

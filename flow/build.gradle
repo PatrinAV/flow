@@ -1,4 +1,7 @@
-apply plugin: 'com.android.library'
+plugins {
+	id 'com.android.library'
+	id 'maven-publish'
+}
 
 android {
 	namespace 'flow.basic'
@@ -18,4 +21,22 @@ dependencies {
 	testImplementation deps.mockito
 	testImplementation deps.robolectric
 	testImplementation deps.antTasks
+}
+
+publishing {
+	publications {
+		release(MavenPublication) {
+			artifact("$buildDir/outputs/aar/${project.name}-release.aar")
+
+			groupId = GROUP
+			artifactId = POM_ARTIFACT_ID
+			version = VERSION_NAME
+
+			pom {
+				name.set(POM_NAME)
+				description.set(POM_DESCRIPTION)
+				url.set(POM_URL)
+			}
+		}
+	}
 }
