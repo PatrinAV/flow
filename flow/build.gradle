@@ -12,6 +12,9 @@ android {
 		minSdkVersion versions.minSdk
 		versionName VERSION_NAME
 	}
+	publishing {
+		singleVariant("release")
+	}
 }
 
 dependencies {
@@ -23,19 +26,21 @@ dependencies {
 	testImplementation deps.antTasks
 }
 
-publishing {
-	publications {
-		release(MavenPublication) {
-			artifact("$buildDir/outputs/aar/${project.name}-release.aar")
+afterEvaluate {
+	publishing {
+		publications {
+			release(MavenPublication) {
+				from components["release"]
 
-			groupId = GROUP
-			artifactId = POM_ARTIFACT_ID
-			version = VERSION_NAME
+				groupId = GROUP
+				artifactId = POM_ARTIFACT_ID
+				version = VERSION_NAME
 
-			pom {
-				name.set(POM_NAME)
-				description.set(POM_DESCRIPTION)
-				url.set(POM_URL)
+				pom {
+					name.set(POM_NAME)
+					description.set(POM_DESCRIPTION)
+					url.set(POM_URL)
+				}
 			}
 		}
 	}
